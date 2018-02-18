@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div id="vue-app">
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component">
+    <h1>All The People</h2>
+
+    <ul>
+      <li v-for="people in peoples">
+        Name: {{ people.name }} 
+        Bio: {{ people.bio }} 
+        <button v-on:click="deletePeople(people)">Delete</button>
+      </li>
+    </ul>
+
+<div>
+   <p> Number of People: {{ peoples.length }} <p>
+
+  </div>
+
+
+  <h4>Add Some People</h4>
+  <div>
+    Name <input v-model="newPeople.name">
+    Bio <input v-model="newPeople.bio">
+    <button v-on:click="addPeople()">Add People</button>
+  </div>
+
+  
+   
+  </div>
+</template>
+
+<!-- <ul>
+      <li v-for="review in reviews">
+      {{ review.rating }}
+      STARS - {{ review.reviewer}}
+      {{ review.text }}
+      </li>
+    </ul> -->
