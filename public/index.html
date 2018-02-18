@@ -7,6 +7,11 @@
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div id="vue-app">
@@ -23,8 +28,8 @@
 
     <ul>
       <li v-for="people in peoples">
-        Name: {{ people.name }} 
-        Bio: {{ people.bio }} 
+        <span v-on:click="toggleBioVisible(people)"> Name: {{ people.name }} </span>
+        <span v-bind:class="{hidden: !people.bioVisible}">Bio: {{ people.bio }} </span>
         <button v-on:click="deletePeople(people)">Delete</button>
       </li>
     </ul>

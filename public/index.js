@@ -40,6 +40,10 @@ var HomePage = {
     deletePeople: function(people) {
         var index = this.peoples.indexOf(people);
         this.peoples.splice(index, 1);
+    },
+
+    toggleBioVisible: function(people) {
+      people.bioVisible = !people.bioVisible;
     }
   },
  
